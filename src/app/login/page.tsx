@@ -30,119 +30,132 @@ export default function LoginPage() {
   return (
     <>
       <style>{`
-        @keyframes blob1 { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(60px,-40px) scale(1.1)} 66%{transform:translate(-30px,60px) scale(0.95)} }
-        @keyframes blob2 { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(-50px,60px) scale(1.08)} 66%{transform:translate(70px,-30px) scale(0.97)} }
-        @keyframes blob3 { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(40px,50px) scale(1.05)} 66%{transform:translate(-60px,-20px) scale(1.1)} }
-        .blob1 { animation: blob1 12s ease-in-out infinite; }
-        .blob2 { animation: blob2 15s ease-in-out infinite; }
-        .blob3 { animation: blob3 10s ease-in-out infinite; }
-        input[type=password]::-ms-reveal,
-        input[type=password]::-ms-clear { display:none; }
+        input[type=password]::-ms-reveal,input[type=password]::-ms-clear{display:none}
+        .input-field{width:100%;padding:16px 20px;border-radius:14px;font-size:15px;outline:none;transition:all .2s;background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.1);color:#fff;}
+        .input-field::placeholder{color:rgba(148,163,184,0.45)}
+        .input-field:focus{background:rgba(255,255,255,0.09);border-color:rgba(99,102,241,0.7);box-shadow:0 0 0 4px rgba(99,102,241,0.12)}
       `}</style>
 
-      <div className="min-h-screen flex items-center justify-center relative overflow-hidden"
-        style={{ background: '#070b14' }}>
+      <div style={{minHeight:'100vh',display:'flex',background:'#080d1a'}}>
 
-        {/* Animated background blobs */}
-        <div className="blob1 absolute rounded-full pointer-events-none"
-          style={{ width: 700, height: 700, top: '-200px', left: '-200px', background: 'radial-gradient(circle, rgba(37,99,235,0.35) 0%, transparent 70%)' }} />
-        <div className="blob2 absolute rounded-full pointer-events-none"
-          style={{ width: 600, height: 600, bottom: '-150px', right: '-150px', background: 'radial-gradient(circle, rgba(124,58,237,0.3) 0%, transparent 70%)' }} />
-        <div className="blob3 absolute rounded-full pointer-events-none"
-          style={{ width: 400, height: 400, top: '50%', left: '55%', background: 'radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%)' }} />
+        {/* ── LEFT: fills entire half ── */}
+        <div style={{
+          flex:'0 0 50%',display:'flex',flexDirection:'column',justifyContent:'space-between',
+          padding:'56px 64px',position:'relative',overflow:'hidden',
+          background:'linear-gradient(150deg,#0a1628 0%,#0d1f3e 50%,#0a1a35 100%)'
+        }}>
+          {/* blobs */}
+          <div style={{position:'absolute',top:-180,left:-120,width:500,height:500,borderRadius:'50%',background:'radial-gradient(circle,rgba(37,99,235,0.22) 0%,transparent 70%)',pointerEvents:'none'}}/>
+          <div style={{position:'absolute',bottom:-120,right:-80,width:420,height:420,borderRadius:'50%',background:'radial-gradient(circle,rgba(124,58,237,0.18) 0%,transparent 70%)',pointerEvents:'none'}}/>
+          {/* grid */}
+          <div style={{position:'absolute',inset:0,pointerEvents:'none',backgroundImage:'linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px)',backgroundSize:'52px 52px'}}/>
 
-        {/* Noise texture overlay */}
-        <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.03,
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-        }} />
+          {/* Logo */}
+          <div style={{position:'relative',zIndex:1,display:'flex',alignItems:'center',gap:14}}>
+            <div style={{width:44,height:44,borderRadius:14,background:'linear-gradient(135deg,#2563eb,#7c3aed)',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:900,fontSize:20,color:'#fff',flexShrink:0}}>A</div>
+            <div>
+              <div style={{color:'#fff',fontWeight:700,fontSize:15,lineHeight:1}}>Adliya MediaHub</div>
+              <div style={{color:'rgba(148,163,184,0.55)',fontSize:12,marginTop:4}}>Axborot-tahliliy platforma</div>
+            </div>
+          </div>
 
-        {/* Glass card */}
-        <div className="relative z-10 w-full max-w-md mx-4 rounded-3xl overflow-hidden"
-          style={{
-            background: 'rgba(255,255,255,0.04)',
-            border: '1px solid rgba(255,255,255,0.08)',
-            backdropFilter: 'blur(40px)',
-            boxShadow: '0 32px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08)',
-          }}>
+          {/* Center content */}
+          <div style={{position:'relative',zIndex:1}}>
+            {/* visual: stacked cards */}
+            <div style={{display:'flex',flexDirection:'column',gap:12,marginBottom:48}}>
+              {[
+                {w:'100%',label:'OAV So\'rovlari',val:'247 ta faol',color:'rgba(37,99,235,0.25)',border:'rgba(37,99,235,0.4)'},
+                {w:'85%',label:'Tadbirlar',val:'18 ta bugun',color:'rgba(124,58,237,0.2)',border:'rgba(124,58,237,0.35)'},
+                {w:'70%',label:'Monitoring',val:'3 ta tanqidiy',color:'rgba(239,68,68,0.15)',border:'rgba(239,68,68,0.3)'},
+              ].map(item=>(
+                <div key={item.label} style={{width:item.w,padding:'16px 20px',borderRadius:16,background:item.color,border:`1px solid ${item.border}`,backdropFilter:'blur(8px)'}}>
+                  <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+                    <span style={{color:'rgba(226,232,240,0.7)',fontSize:13}}>{item.label}</span>
+                    <span style={{color:'#fff',fontWeight:600,fontSize:13}}>{item.val}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
 
-          {/* Top accent bar */}
-          <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #2563eb, #7c3aed, #2563eb)' }} />
+            <h2 style={{color:'#fff',fontSize:42,fontWeight:800,lineHeight:1.2,letterSpacing:'-0.02em',marginBottom:16}}>
+              Media kontentni<br/>
+              <span style={{background:'linear-gradient(90deg,#60a5fa,#a78bfa)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>
+                professional
+              </span>{' '}boshqaring
+            </h2>
+            <p style={{color:'rgba(148,163,184,0.65)',fontSize:15,lineHeight:1.7,maxWidth:360}}>
+              OAV so'rovlari, tadbirlar, monitoring va hisobotlar — hammasi bir platformada.
+            </p>
+          </div>
 
-          <div className="px-10 py-12">
-            {/* Logo */}
-            <div className="flex items-center gap-3 mb-12">
-              <div className="w-10 h-10 rounded-2xl flex items-center justify-center font-black text-white text-lg flex-shrink-0"
-                style={{ background: 'linear-gradient(135deg, #2563eb, #7c3aed)' }}>A</div>
-              <div>
-                <div className="text-white font-bold text-sm leading-none">Adliya MediaHub</div>
-                <div className="text-xs mt-1" style={{ color: 'rgba(148,163,184,0.6)' }}>Axborot-tahliliy platforma</div>
+          {/* Stats */}
+          <div style={{position:'relative',zIndex:1,display:'flex',gap:40,paddingTop:32,borderTop:'1px solid rgba(255,255,255,0.07)'}}>
+            {[['10K+','Foydalanuvchi'],['500+','Tashkilot'],['99.9%','Uptime']].map(([v,l])=>(
+              <div key={l}>
+                <div style={{color:'#fff',fontSize:24,fontWeight:800}}>{v}</div>
+                <div style={{color:'rgba(148,163,184,0.5)',fontSize:12,marginTop:4}}>{l}</div>
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
 
-            {/* Heading */}
-            <div className="mb-8">
-              <h1 className="text-3xl font-bold text-white leading-tight mb-2">Xush kelibsiz</h1>
-              <p className="text-sm" style={{ color: 'rgba(148,163,184,0.7)' }}>Hisobingizga kiring</p>
-            </div>
+        {/* ── RIGHT: form fills entire half ── */}
+        <div style={{flex:'0 0 50%',display:'flex',flexDirection:'column',justifyContent:'center',padding:'56px 72px',background:'#f0f4ff'}}>
 
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-4">
+          <div style={{maxWidth:420,width:'100%'}}>
+            <h1 style={{fontSize:34,fontWeight:800,color:'#0f172a',letterSpacing:'-0.02em',marginBottom:8}}>
+              Xush kelibsiz 👋
+            </h1>
+            <p style={{color:'#64748b',fontSize:15,marginBottom:48}}>
+              Davom etish uchun hisobingizga kiring
+            </p>
+
+            <form onSubmit={handleSubmit} style={{display:'flex',flexDirection:'column',gap:24}}>
               <div>
-                <label className="block text-xs font-medium mb-2" style={{ color: 'rgba(203,213,225,0.8)' }}>
+                <label style={{display:'block',fontSize:13,fontWeight:600,color:'#334155',marginBottom:10,letterSpacing:'0.01em'}}>
                   Email manzil
                 </label>
                 <input
                   type="email"
                   value={form.email}
-                  onChange={e => setForm({ ...form, email: e.target.value })}
+                  onChange={e=>setForm({...form,email:e.target.value})}
                   placeholder="email@adliya.uz"
                   required
                   autoComplete="email"
-                  className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none transition-all"
-                  style={{
-                    background: 'rgba(255,255,255,0.05)',
-                    border: '1px solid rgba(255,255,255,0.1)',
-                  }}
-                  onFocus={e => { e.target.style.border = '1px solid rgba(99,102,241,0.7)'; e.target.style.background = 'rgba(255,255,255,0.07)' }}
-                  onBlur={e => { e.target.style.border = '1px solid rgba(255,255,255,0.1)'; e.target.style.background = 'rgba(255,255,255,0.05)' }}
+                  style={{width:'100%',padding:'16px 20px',borderRadius:14,fontSize:15,outline:'none',transition:'all .2s',background:'#fff',border:'1.5px solid #e2e8f0',color:'#0f172a',boxSizing:'border-box'}}
+                  onFocus={e=>{e.target.style.borderColor='#6366f1';e.target.style.boxShadow='0 0 0 4px rgba(99,102,241,0.1)'}}
+                  onBlur={e=>{e.target.style.borderColor='#e2e8f0';e.target.style.boxShadow='none'}}
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium mb-2" style={{ color: 'rgba(203,213,225,0.8)' }}>
+                <label style={{display:'block',fontSize:13,fontWeight:600,color:'#334155',marginBottom:10,letterSpacing:'0.01em'}}>
                   Parol
                 </label>
-                <div className="relative">
+                <div style={{position:'relative'}}>
                   <input
-                    type={showPw ? 'text' : 'password'}
+                    type={showPw?'text':'password'}
                     value={form.password}
-                    onChange={e => setForm({ ...form, password: e.target.value })}
+                    onChange={e=>setForm({...form,password:e.target.value})}
                     placeholder="••••••••"
                     required
                     autoComplete="current-password"
-                    className="w-full rounded-xl px-4 py-3 pr-12 text-sm text-white placeholder-slate-500 focus:outline-none transition-all"
-                    style={{
-                      background: 'rgba(255,255,255,0.05)',
-                      border: '1px solid rgba(255,255,255,0.1)',
-                    }}
-                    onFocus={e => { e.target.style.border = '1px solid rgba(99,102,241,0.7)'; e.target.style.background = 'rgba(255,255,255,0.07)' }}
-                    onBlur={e => { e.target.style.border = '1px solid rgba(255,255,255,0.1)'; e.target.style.background = 'rgba(255,255,255,0.05)' }}
+                    style={{width:'100%',padding:'16px 52px 16px 20px',borderRadius:14,fontSize:15,outline:'none',transition:'all .2s',background:'#fff',border:'1.5px solid #e2e8f0',color:'#0f172a',boxSizing:'border-box'}}
+                    onFocus={e=>{e.target.style.borderColor='#6366f1';e.target.style.boxShadow='0 0 0 4px rgba(99,102,241,0.1)'}}
+                    onBlur={e=>{e.target.style.borderColor='#e2e8f0';e.target.style.boxShadow='none'}}
                   />
                   <button
                     type="button"
                     tabIndex={-1}
-                    onClick={() => setShowPw(!showPw)}
-                    className="absolute top-1/2 right-4 -translate-y-1/2 transition-colors"
-                    style={{ color: 'rgba(148,163,184,0.5)' }}
-                    onMouseEnter={e => (e.currentTarget.style.color = 'rgba(148,163,184,1)')}
-                    onMouseLeave={e => (e.currentTarget.style.color = 'rgba(148,163,184,0.5)')}
+                    onClick={()=>setShowPw(!showPw)}
+                    style={{position:'absolute',top:'50%',right:18,transform:'translateY(-50%)',background:'none',border:'none',cursor:'pointer',color:'#94a3b8',padding:0,display:'flex',alignItems:'center'}}
                   >
-                    {showPw ? (
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    {showPw?(
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/>
                       </svg>
-                    ) : (
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    ):(
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
                       </svg>
                     )}
@@ -150,41 +163,35 @@ export default function LoginPage() {
                 </div>
               </div>
 
-              <div className="pt-2">
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full py-3.5 rounded-xl text-sm font-semibold text-white transition-opacity disabled:opacity-50 relative overflow-hidden"
-                  style={{ background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)' }}
-                >
-                  <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity"
-                    style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)' }} />
-                  <span className="relative flex items-center justify-center gap-2">
-                    {loading && (
-                      <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
-                      </svg>
-                    )}
-                    {loading ? 'Kirilmoqda...' : 'Kirish'}
+              <button
+                type="submit"
+                disabled={loading}
+                style={{
+                  width:'100%',padding:'17px',borderRadius:14,fontSize:15,fontWeight:700,
+                  color:'#fff',border:'none',cursor:loading?'not-allowed':'pointer',
+                  background:'linear-gradient(135deg,#2563eb 0%,#7c3aed 100%)',
+                  opacity:loading?0.7:1,transition:'opacity .2s',marginTop:8,
+                  boxShadow:'0 8px 24px rgba(37,99,235,0.35)',
+                }}
+              >
+                {loading?(
+                  <span style={{display:'flex',alignItems:'center',justifyContent:'center',gap:10}}>
+                    <svg style={{animation:'spin 1s linear infinite'}} width="18" height="18" viewBox="0 0 24 24" fill="none">
+                      <style>{'@keyframes spin{to{transform:rotate(360deg)}}'}</style>
+                      <circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.3)" strokeWidth="3"/>
+                      <path d="M12 2a10 10 0 0110 10" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
+                    </svg>
+                    Kirilmoqda...
                   </span>
-                </button>
-              </div>
+                ):'Kirish'}
+              </button>
             </form>
 
-            {/* Footer */}
-            <div className="mt-8 text-center text-xs" style={{ color: 'rgba(100,116,139,0.6)' }}>
+            <p style={{marginTop:36,textAlign:'center',fontSize:13,color:'#94a3b8'}}>
               Muammo bo&apos;lsa{' '}
-              <span className="text-blue-400 cursor-pointer hover:text-blue-300 transition-colors">
-                administrator bilan bog&apos;laning
-              </span>
-            </div>
+              <span style={{color:'#6366f1',cursor:'pointer',fontWeight:500}}>administrator bilan bog&apos;laning</span>
+            </p>
           </div>
-        </div>
-
-        {/* Bottom watermark */}
-        <div className="absolute bottom-6 text-xs" style={{ color: 'rgba(100,116,139,0.3)' }}>
-          © 2026 Adliya MediaHub
         </div>
       </div>
     </>

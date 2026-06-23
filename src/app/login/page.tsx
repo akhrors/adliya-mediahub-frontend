@@ -10,7 +10,7 @@ export default function LoginPage() {
   const setAuth = useAuthStore((s) => s.setAuth)
   const [form, setForm] = useState({ email: '', password: '' })
   const [loading, setLoading] = useState(false)
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPw, setShowPw] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -30,186 +30,161 @@ export default function LoginPage() {
   return (
     <>
       <style>{`
-        input[type="password"]::-ms-reveal,
-        input[type="password"]::-ms-clear,
-        input[type="password"]::-webkit-contacts-auto-fill-button,
-        input[type="password"]::-webkit-credentials-auto-fill-button { display: none !important; }
+        @keyframes blob1 { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(60px,-40px) scale(1.1)} 66%{transform:translate(-30px,60px) scale(0.95)} }
+        @keyframes blob2 { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(-50px,60px) scale(1.08)} 66%{transform:translate(70px,-30px) scale(0.97)} }
+        @keyframes blob3 { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(40px,50px) scale(1.05)} 66%{transform:translate(-60px,-20px) scale(1.1)} }
+        .blob1 { animation: blob1 12s ease-in-out infinite; }
+        .blob2 { animation: blob2 15s ease-in-out infinite; }
+        .blob3 { animation: blob3 10s ease-in-out infinite; }
+        input[type=password]::-ms-reveal,
+        input[type=password]::-ms-clear { display:none; }
       `}</style>
 
-      <div className="min-h-screen flex bg-slate-950">
-        {/* ── Left branding panel ─────────────────────────────── */}
-        <div className="hidden lg:flex w-[55%] relative overflow-hidden flex-col p-12"
-          style={{ background: 'linear-gradient(145deg, #0a1628 0%, #0f2444 60%, #112d52 100%)' }}>
+      <div className="min-h-screen flex items-center justify-center relative overflow-hidden"
+        style={{ background: '#070b14' }}>
 
-          {/* Glowing orbs */}
-          <div className="pointer-events-none absolute" style={{
-            top: '-120px', left: '-80px', width: '500px', height: '500px',
-            background: 'radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%)',
-          }} />
-          <div className="pointer-events-none absolute" style={{
-            bottom: '-100px', right: '-60px', width: '400px', height: '400px',
-            background: 'radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)',
-          }} />
-          <div className="pointer-events-none absolute" style={{
-            top: '45%', left: '55%', width: '300px', height: '300px',
-            background: 'radial-gradient(circle, rgba(245,158,11,0.07) 0%, transparent 70%)',
-          }} />
+        {/* Animated background blobs */}
+        <div className="blob1 absolute rounded-full pointer-events-none"
+          style={{ width: 700, height: 700, top: '-200px', left: '-200px', background: 'radial-gradient(circle, rgba(37,99,235,0.35) 0%, transparent 70%)' }} />
+        <div className="blob2 absolute rounded-full pointer-events-none"
+          style={{ width: 600, height: 600, bottom: '-150px', right: '-150px', background: 'radial-gradient(circle, rgba(124,58,237,0.3) 0%, transparent 70%)' }} />
+        <div className="blob3 absolute rounded-full pointer-events-none"
+          style={{ width: 400, height: 400, top: '50%', left: '55%', background: 'radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%)' }} />
 
-          {/* Subtle grid lines */}
-          <div className="pointer-events-none absolute inset-0" style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)`,
-            backgroundSize: '60px 60px',
-          }} />
+        {/* Noise texture overlay */}
+        <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.03,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+        }} />
 
-          {/* Logo */}
-          <div className="relative z-10 flex items-center gap-3 mb-auto">
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center text-white font-bold text-base"
-              style={{ background: 'linear-gradient(135deg, #3b82f6, #2563eb)' }}>A</div>
-            <span className="text-white font-semibold tracking-wide">Adliya MediaHub</span>
-          </div>
+        {/* Glass card */}
+        <div className="relative z-10 w-full max-w-md mx-4 rounded-3xl overflow-hidden"
+          style={{
+            background: 'rgba(255,255,255,0.04)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            backdropFilter: 'blur(40px)',
+            boxShadow: '0 32px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08)',
+          }}>
 
-          {/* Center hero */}
-          <div className="relative z-10 flex-1 flex flex-col justify-center max-w-md">
-            {/* Abstract icon cluster */}
-            <div className="mb-12 flex items-end gap-3">
-              <div className="flex flex-col gap-3">
-                <div className="w-12 h-12 rounded-2xl" style={{ background: 'rgba(59,130,246,0.2)', border: '1px solid rgba(59,130,246,0.3)' }} />
-                <div className="w-12 h-20 rounded-2xl" style={{ background: 'rgba(99,102,241,0.15)', border: '1px solid rgba(99,102,241,0.2)' }} />
-              </div>
-              <div className="flex flex-col gap-3 mb-3">
-                <div className="w-12 h-24 rounded-2xl" style={{ background: 'rgba(59,130,246,0.25)', border: '1px solid rgba(59,130,246,0.35)' }} />
-                <div className="w-12 h-8 rounded-2xl" style={{ background: 'rgba(245,158,11,0.2)', border: '1px solid rgba(245,158,11,0.3)' }} />
-              </div>
-              <div className="flex flex-col gap-3 mb-6">
-                <div className="w-12 h-14 rounded-2xl" style={{ background: 'rgba(99,102,241,0.2)', border: '1px solid rgba(99,102,241,0.25)' }} />
-                <div className="w-12 h-16 rounded-2xl" style={{ background: 'rgba(59,130,246,0.15)', border: '1px solid rgba(59,130,246,0.2)' }} />
-              </div>
-              <div className="flex flex-col gap-3 mb-2">
-                <div className="w-12 h-10 rounded-2xl" style={{ background: 'rgba(245,158,11,0.15)', border: '1px solid rgba(245,158,11,0.2)' }} />
-                <div className="w-12 h-28 rounded-2xl" style={{ background: 'rgba(59,130,246,0.3)', border: '1px solid rgba(59,130,246,0.4)' }} />
-              </div>
-            </div>
+          {/* Top accent bar */}
+          <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #2563eb, #7c3aed, #2563eb)' }} />
 
-            <h2 className="text-5xl font-bold text-white leading-[1.15] tracking-tight mb-5">
-              Media kontentni<br />
-              <span style={{ color: '#60a5fa' }}>professional</span><br />
-              boshqaring
-            </h2>
-            <p style={{ color: 'rgba(148,163,184,0.8)' }} className="text-base leading-relaxed">
-              OAV so'rovlari, tadbirlar, monitoring va hisobotlar — hammasi bir platformada.
-            </p>
-
-            {/* Stats */}
-            <div className="flex gap-8 mt-10 pt-10" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-              {[['10K+', "Foydalanuvchi"], ['500+', 'Tashkilot'], ['99.9%', 'Uptime']].map(([v, l]) => (
-                <div key={l}>
-                  <div className="text-2xl font-bold text-white">{v}</div>
-                  <div className="text-xs mt-0.5" style={{ color: 'rgba(148,163,184,0.6)' }}>{l}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="relative z-10 text-xs" style={{ color: 'rgba(100,116,139,0.5)' }}>
-            © 2026 Adliya MediaHub
-          </div>
-        </div>
-
-        {/* ── Right form panel ────────────────────────────────── */}
-        <div className="flex-1 flex items-center justify-center px-8 py-12"
-          style={{ background: '#f8fafc' }}>
-          <div className="w-full max-w-[360px]">
-
-            {/* Mobile logo */}
-            <div className="lg:hidden flex items-center gap-2.5 mb-10">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm"
-                style={{ background: 'linear-gradient(135deg, #1a3a6b, #2563eb)' }}>A</div>
-              <span className="font-semibold text-slate-800">Adliya MediaHub</span>
-            </div>
-
-            <h1 className="text-2xl font-bold text-slate-900 mb-1">Xush kelibsiz</h1>
-            <p className="text-sm text-slate-400 mb-8">Davom etish uchun hisobingizga kiring</p>
-
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Email */}
+          <div className="px-10 py-12">
+            {/* Logo */}
+            <div className="flex items-center gap-3 mb-12">
+              <div className="w-10 h-10 rounded-2xl flex items-center justify-center font-black text-white text-lg flex-shrink-0"
+                style={{ background: 'linear-gradient(135deg, #2563eb, #7c3aed)' }}>A</div>
               <div>
-                <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-2">
-                  Email
+                <div className="text-white font-bold text-sm leading-none">Adliya MediaHub</div>
+                <div className="text-xs mt-1" style={{ color: 'rgba(148,163,184,0.6)' }}>Axborot-tahliliy platforma</div>
+              </div>
+            </div>
+
+            {/* Heading */}
+            <div className="mb-8">
+              <h1 className="text-3xl font-bold text-white leading-tight mb-2">Xush kelibsiz</h1>
+              <p className="text-sm" style={{ color: 'rgba(148,163,184,0.7)' }}>Hisobingizga kiring</p>
+            </div>
+
+            {/* Form */}
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="block text-xs font-medium mb-2" style={{ color: 'rgba(203,213,225,0.8)' }}>
+                  Email manzil
                 </label>
                 <input
                   type="email"
                   value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                  style={{ background: 'white', border: '1.5px solid #e2e8f0' }}
+                  onChange={e => setForm({ ...form, email: e.target.value })}
                   placeholder="email@adliya.uz"
                   required
                   autoComplete="email"
+                  className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none transition-all"
+                  style={{
+                    background: 'rgba(255,255,255,0.05)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                  }}
+                  onFocus={e => { e.target.style.border = '1px solid rgba(99,102,241,0.7)'; e.target.style.background = 'rgba(255,255,255,0.07)' }}
+                  onBlur={e => { e.target.style.border = '1px solid rgba(255,255,255,0.1)'; e.target.style.background = 'rgba(255,255,255,0.05)' }}
                 />
               </div>
 
-              {/* Password */}
               <div>
-                <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wide mb-2">
+                <label className="block text-xs font-medium mb-2" style={{ color: 'rgba(203,213,225,0.8)' }}>
                   Parol
                 </label>
                 <div className="relative">
                   <input
-                    type={showPassword ? 'text' : 'password'}
+                    type={showPw ? 'text' : 'password'}
                     value={form.password}
-                    onChange={(e) => setForm({ ...form, password: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                    style={{ background: 'white', border: '1.5px solid #e2e8f0' }}
+                    onChange={e => setForm({ ...form, password: e.target.value })}
                     placeholder="••••••••"
                     required
                     autoComplete="current-password"
+                    className="w-full rounded-xl px-4 py-3 pr-12 text-sm text-white placeholder-slate-500 focus:outline-none transition-all"
+                    style={{
+                      background: 'rgba(255,255,255,0.05)',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                    }}
+                    onFocus={e => { e.target.style.border = '1px solid rgba(99,102,241,0.7)'; e.target.style.background = 'rgba(255,255,255,0.07)' }}
+                    onBlur={e => { e.target.style.border = '1px solid rgba(255,255,255,0.1)'; e.target.style.background = 'rgba(255,255,255,0.05)' }}
                   />
                   <button
                     type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute top-1/2 right-3.5 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition"
                     tabIndex={-1}
+                    onClick={() => setShowPw(!showPw)}
+                    className="absolute top-1/2 right-4 -translate-y-1/2 transition-colors"
+                    style={{ color: 'rgba(148,163,184,0.5)' }}
+                    onMouseEnter={e => (e.currentTarget.style.color = 'rgba(148,163,184,1)')}
+                    onMouseLeave={e => (e.currentTarget.style.color = 'rgba(148,163,184,0.5)')}
                   >
-                    {showPassword ? (
+                    {showPw ? (
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94"/>
-                        <path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"/>
-                        <line x1="1" y1="1" x2="23" y2="23"/>
+                        <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/>
                       </svg>
                     ) : (
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
                       </svg>
                     )}
                   </button>
                 </div>
               </div>
 
-              {/* Submit */}
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full py-3 rounded-xl text-sm font-semibold text-white mt-2 transition-opacity disabled:opacity-60"
-                style={{ background: 'linear-gradient(135deg, #1e3a8a, #2563eb)' }}
-              >
-                {loading ? (
-                  <span className="flex items-center justify-center gap-2">
-                    <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
-                    </svg>
-                    Kirish...
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full py-3.5 rounded-xl text-sm font-semibold text-white transition-opacity disabled:opacity-50 relative overflow-hidden"
+                  style={{ background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)' }}
+                >
+                  <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity"
+                    style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)' }} />
+                  <span className="relative flex items-center justify-center gap-2">
+                    {loading && (
+                      <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+                      </svg>
+                    )}
+                    {loading ? 'Kirilmoqda...' : 'Kirish'}
                   </span>
-                ) : 'Kirish'}
-              </button>
+                </button>
+              </div>
             </form>
 
-            <p className="text-center text-xs text-slate-400 mt-8">
-              Muammo bo&apos;lsa administrator bilan bog&apos;laning
-            </p>
+            {/* Footer */}
+            <div className="mt-8 text-center text-xs" style={{ color: 'rgba(100,116,139,0.6)' }}>
+              Muammo bo&apos;lsa{' '}
+              <span className="text-blue-400 cursor-pointer hover:text-blue-300 transition-colors">
+                administrator bilan bog&apos;laning
+              </span>
+            </div>
           </div>
+        </div>
+
+        {/* Bottom watermark */}
+        <div className="absolute bottom-6 text-xs" style={{ color: 'rgba(100,116,139,0.3)' }}>
+          © 2026 Adliya MediaHub
         </div>
       </div>
     </>

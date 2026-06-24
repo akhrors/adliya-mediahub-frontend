@@ -2,7 +2,7 @@
 import DashboardLayout from '@/components/layout/DashboardLayout'
 import { useQuery } from '@tanstack/react-query'
 import { dashboardApi } from '@/lib/api'
-import { Mic2, Calendar, Newspaper, MonitorPlay, BarChart2, AlertTriangle, TrendingUp, Medal } from 'lucide-react'
+import { Mic2, Calendar, Newspaper, MonitorPlay, BarChart2, AlertTriangle, TrendingUp, Award } from 'lucide-react'
 
 const statConfig = [
   { key: 'todayEvents',       title: "Bugungi tadbirlar",        icon: Calendar,      gradient: 'from-blue-500 to-blue-600',    light: 'bg-blue-50 text-blue-600' },
@@ -93,7 +93,7 @@ export default function DashboardPage() {
                   {stats.topRegions.map((r: any, i: number) => (
                     <li key={i} className="flex items-center gap-3">
                       <span className={`w-6 text-sm font-bold flex-shrink-0 ${medalColors[i] || 'text-gray-400'}`}>
-                        {i < 3 ? <Medal size={16} /> : `${i + 1}.`}
+                        {i < 3 ? <Award size={16} /> : `${i + 1}.`}
                       </span>
                       <span className="flex-1 text-sm text-gray-700 truncate">{r.name}</span>
                       <div className="flex items-center gap-2">
@@ -132,7 +132,7 @@ export default function DashboardPage() {
                   {stats.topExperts.map((e: any, i: number) => (
                     <li key={i} className="flex items-center gap-3">
                       <span className={`w-6 text-sm font-bold flex-shrink-0 ${medalColors[i] || 'text-gray-400'}`}>
-                        {i < 3 ? <Medal size={16} /> : `${i + 1}.`}
+                        {i < 3 ? <Award size={16} /> : `${i + 1}.`}
                       </span>
                       <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center flex-shrink-0">
                         <span className="text-xs font-bold text-blue-600">{e.fish?.[0]}</span>

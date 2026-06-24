@@ -4,7 +4,7 @@ import { useMutation } from '@tanstack/react-query'
 import { reportsApi } from '@/lib/api'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
-import { Download, FileText, FileSpreadsheet, FileType } from 'lucide-react'
+import { Download, FileText, FileSpreadsheet, File } from 'lucide-react'
 
 const REPORT_TYPES = [
   { value:'OAV_CHIQISHLARI',      label:"OAV chiqishlari hisoboti",        icon: '📰' },
@@ -17,7 +17,7 @@ const REPORT_TYPES = [
 const FORMAT_META: Record<string, { icon: any; label: string; desc: string; color: string }> = {
   EXCEL: { icon: FileSpreadsheet, label: 'Excel',  desc: '.xlsx',  color: 'text-emerald-600 bg-emerald-50 border-emerald-200' },
   WORD:  { icon: FileText,        label: 'Word',   desc: '.docx',  color: 'text-blue-600 bg-blue-50 border-blue-200' },
-  PDF:   { icon: FileType,        label: 'PDF',    desc: '.pdf',   color: 'text-red-600 bg-red-50 border-red-200' },
+  PDF:   { icon: File,        label: 'PDF',    desc: '.pdf',   color: 'text-red-600 bg-red-50 border-red-200' },
 }
 
 export default function ReportsPage() {

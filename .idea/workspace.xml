@@ -1,6 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PropertiesComponent">{}</component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f7328439-e31a-4ddb-be88-a7f720768b72" name="Changes" comment="redesign">
+      <change afterPath="$PROJECT_DIR$/postcss.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/dashboard/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/reports/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/reports/page.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "akhrors"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/akhrors/adliya-mediahub-frontend.git",
+    "accountId": "93e875ce-dd75-4510-8056-f56dde79831d"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8,
+  "fromUser": false
+}]]></component>
+  <component name="ProjectId" id="3FWz3sPA90ruSPYvRmjinfRxFW1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "js.debugger.nextJs.config.created.client": "true",
+    "js.debugger.nextJs.config.created.server": "true",
+    "last_opened_file_path": "/Users/user/Downloads/adliya-mediahub-frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/user/Downloads/adliya-mediahub-frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RunManager" selected="npm.Next.js: server-side">
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
       <method v="2" />
@@ -15,5 +74,99 @@
       <envs />
       <method v="2" />
     </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-3bd3a6803838-JavaScript-WS-261.22158.274" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f7328439-e31a-4ddb-be88-a7f720768b72" name="Changes" comment="" />
+      <created>1782205417695</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1782205417695</updated>
+      <workItem from="1782205418723" duration="4061000" />
+    </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1782205485592</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1782205485592</updated>
+    </task>
+    <task id="LOCAL-00002" summary="redesign">
+      <option name="closed" value="true" />
+      <created>1782215055125</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1782215055126</updated>
+    </task>
+    <task id="LOCAL-00003" summary="redesign">
+      <option name="closed" value="true" />
+      <created>1782215067703</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1782215067703</updated>
+    </task>
+    <task id="LOCAL-00004" summary="redesign">
+      <option name="closed" value="true" />
+      <created>1782215445386</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1782215445386</updated>
+    </task>
+    <task id="LOCAL-00005" summary="redesign">
+      <option name="closed" value="true" />
+      <created>1782215664762</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1782215664762</updated>
+    </task>
+    <task id="LOCAL-00006" summary="redesign">
+      <option name="closed" value="true" />
+      <created>1782215936012</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1782215936012</updated>
+    </task>
+    <task id="LOCAL-00007" summary="redesign">
+      <option name="closed" value="true" />
+      <created>1782216223212</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1782216223212</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <MESSAGE value="redesign" />
+    <option name="LAST_COMMIT_MESSAGE" value="redesign" />
   </component>
 </project>
